@@ -1,47 +1,45 @@
-// Step-1: Add eventListener to the deposit button
+// console.log('deposit button clicked');
+/*
+1. Add eventListener to the deposit button
+2. Get deposit amount from the deposit input field
+2.5. Convert string deposit amount to a number type
+3. Clear the deposit input field after getting the value
+4. Get the previous deposit total
+5. Calculate new deposit total and set the value to the deposit total
+6. Get current balance total
+7. Calculate the new balance and set it to the balance total element
+*/
+
+
+
+
+// Step-1:
 document.getElementById('btn-deposit').addEventListener('click', function () {
-    //console.log('deposit button clicked');
-    // Step-2: Get the deposit amount from the deposit input field
-    // For input field use .value to the value inside the input field
+    // Step-2:
+    // console.log('deposit button clicked');
     const depositField = document.getElementById('deposit-field');
     const newDepositAmountString = depositField.value;
     const newDepositAmount = parseFloat(newDepositAmountString);
+    //console.log(newDepositAmount);
 
-    //console.log(typeof newDepositAmount);
-    //console.log(depositAmount);
-    // Step-3: Get the current deposit total
-    // for non-input (element other than input, textarea) use innerText to get the text
+    // Step-3:
+    depositField.value = '';
+
+    // Step-4:
     const depositTotalElement = document.getElementById('deposit-total');
     const previousDepositTotalString = depositTotalElement.innerText;
     const previousDepositTotal = parseFloat(previousDepositTotalString);
-    console.log(typeof previousDepositTotal);
-    //console.log(depositTotal);
 
-    // Step-4: Add numbers to set the total deposit
-    const currentDepositTotal = previousDepositTotal + newDepositAmount;
+    // Step-5:
+    const newDepositTotal = previousDepositTotal + newDepositAmount;
+    depositTotalElement.innerText = newDepositTotal;
 
-    // Set the deposit total
-    depositTotalElement.innerText = currentDepositTotal;
-
-    // Step-5: Get ballance current total
+    // Step-6:
     const balanceTotalElement = document.getElementById('balance-total');
     const previousBalanceTotalString = balanceTotalElement.innerText;
-    const previousBalanceTotal = parseFloat(previousBalanceTotalString);
+    const previousBalanceTotalAmount = parseFloat(previousBalanceTotalString);
 
-    // Step-6: Calculate current total balance
-    const currentBalanceTotal = previousBalanceTotal + newDepositAmount;
-
-    // Set the balance total
-    balanceTotalElement.innerText = currentBalanceTotal;
-
-
-    // Step-7: Clear the deposit field
-    depositField.value = '';
-})
-
-document.getElementById('btn-withdraw').addEventListener('click', function () {
-    // console.log('withdraw button clicked');
-    const withdrawField = document.getElementById('withdraw-field');
-    const withdrawAmount = withdrawField.value;
-    //console.log(withdrawAmount);
+    // Step-7:
+    const newBalanceTotal = previousBalanceTotalAmount + newDepositAmount;
+    balanceTotalElement.innerText = newBalanceTotal;
 })
